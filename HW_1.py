@@ -1,36 +1,33 @@
-# """"Задача № 10"""
-# n = int(input('Введите количество монеток: '))
-# count = 0
+# """"Задача № 22"""
+#Даны два неупорядоченных набора целых чисел (может быть, с повторениями). Выдать без повторений в порядке возрастания все те числа, которые встречаются в обоих наборах.
+#Пользователь вводит 2 числа. n — кол-во элементов первого множества. m — кол-во элементов второго множества. Затем пользователь вводит сами элементы множеств.
+
+
+# n = int(input("Введите количество элементов 1-го множества: "))
+# m = int(input("Введите количество элементов 2-го множества: "))
+# first_set = set()
 # for i in range(n):
-#     coin = int(input('Введите значение 1 - "орёл" или 0 - "решка": '))
-#     count += coin
-#     i += 1
-# if count <= n//2:
-#     print('Минимальное количество монет, которые нужно перевернуть ', count)
-# else:
-#     print('Минимальное количество монет, которые нужно перевернуть ', n - count)
+#     x = int(input("Введите элемент 1-го множества: "))
+#     first_set.add(x)
+# second_set = set()
+# for i in range(m):
+#     x = int(input("Введите элемент 2-го множества: "))
+#     second_set.add(x)
+# result = first_set.intersection(second_set)
+# result = sorted(list(result))
+# print(first_set, ' ', second_set, 'Ответ', result)
 
-# """Задача № 12"""
-# S = int(input('Задай сумму двух чисел: '))
-# P = int(input('Задай произведение чисел: '))
 
-# for x in range(S):
-#     for y in range(P):
-#         if S == x + y and P == x * y:
-#             print(f'\n Первое число = {x} \n Второе число = {y}')
+# """"Задача № 24"""
 
-"""Задача № 14"""
-number = abs(int(input('\n Введите число: ')))
-
-stop = 0
-degree = 2
-for i in range(number):
-    if stop != 1:
-        degree = degree ** i
-        if degree <= number:
-            print(degree, end=' ')
-            degree = 2
-        else:
-            stop = 1
-    else:
-        i = number
+N = int(input("Введите колличество кустов: "))
+berry_bush = []
+for i in range(N):
+    a = int(input(f'Введите количество ягод на {i+1} кусте: '))
+    berry_bush.append(a)
+max_berries = 0
+for i in range(N):
+    total_berries = berry_bush[i] + berry_bush[(i - 1 + N) % N] + berry_bush[(i + 1) % N]
+    if total_berries > max_berries:
+        max_berries = total_berries
+print("Максимальное число ягод:", max_berries)
